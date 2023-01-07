@@ -39,7 +39,6 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
 
     photonCamera = new PhotonCamera("sheeshcam");
-    // System.out.println("JIJIHIH");
   }
 
   @Override
