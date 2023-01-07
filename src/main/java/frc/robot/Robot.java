@@ -45,20 +45,19 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     CommandScheduler.getInstance().run();
 
-     // This method will be called once per scheduler run
-     var result = photonCamera.getLatestResult();
-    
-     for(PhotonTrackedTarget i : result.getTargets()){ //Assume one target for now
-      
-      Pose3d roboLocation = ComputerVisionUtil.objectToRobotPose(tagLocation, i.getAlternateCameraToTarget(), new Transform3d());
+    // This method will be called once per scheduler run
+    var result = photonCamera.getLatestResult();
 
-       // _____ 
-       //|_____|
-       //Origin at bottom left corner of rectangle facing towards the right with CCW being positive
-      SmartDashboard.putNumber("x:", roboLocation.getX());
-      SmartDashboard.putNumber("y:", roboLocation.getY());
-      SmartDashboard.putNumber("z:", roboLocation.getZ());
-     }
+    for(PhotonTrackedTarget i : result.getTargets()){ //Assume one target for now
+    Pose3d roboLocation = ComputerVisionUtil.objectToRobotPose(tagLocation, i.getAlternateCameraToTarget(), new Transform3d());
+
+    // _____ 
+    //|_____|
+    //Origin at bottom left corner of rectangle facing towards the right with CCW being positive
+    SmartDashboard.putNumber("x:", roboLocation.getX());
+    SmartDashboard.putNumber("y:", roboLocation.getY());
+    SmartDashboard.putNumber("z:", roboLocation.getZ());
+    }
   }
 
   /** This function is called once each time the robot enters Disabled mode. */
