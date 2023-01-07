@@ -49,14 +49,14 @@ public class Robot extends TimedRobot {
     var result = photonCamera.getLatestResult();
 
     for(PhotonTrackedTarget i : result.getTargets()){ //Assume one target for now
-    Pose3d roboLocation = ComputerVisionUtil.objectToRobotPose(tagLocation, i.getAlternateCameraToTarget(), new Transform3d());
+      Pose3d roboLocation = ComputerVisionUtil.objectToRobotPose(tagLocation, i.getAlternateCameraToTarget(), new Transform3d());
 
-    // _____ 
-    //|_____|
-    //Origin at bottom left corner of rectangle facing towards the right with CCW being positive
-    SmartDashboard.putNumber("x:", roboLocation.getX());
-    SmartDashboard.putNumber("y:", roboLocation.getY());
-    SmartDashboard.putNumber("z:", roboLocation.getZ());
+      // _____ 
+      //|_____|
+      //Origin at bottom left corner of rectangle facing towards the right with CCW being positive
+      SmartDashboard.putNumber("x:", roboLocation.getX());
+      SmartDashboard.putNumber("y:", roboLocation.getY());
+      SmartDashboard.putNumber("z:", roboLocation.getZ());
     }
   }
 
